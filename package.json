@@ -19,24 +19,18 @@
     "prebuild-install": "^7.1.1"
   },
   "devDependencies": {
-    "@types/node": "^18.14.6",
-    "chai": "^4.3.7",
-    "mocha": "^10.2.0",
-    "node-gyp": "9.3.1",
-    "prebuild": "^11.0.4",
-    "superstring": "https://github.com/pulsar-edit/superstring#node-api-upgrade",
-    "tree-sitter-javascript": "https://github.com/tree-sitter/tree-sitter-javascript.git#master"
-  },
-  "overrides": {
-    "prebuild": {
-      "node-gyp": "$node-gyp"
-    }
+    "chai": "3.5.x",
+    "jest": "^26.6.3",
+    "mocha": "^5.2.0",
+    "prebuild": "^7.6.0",
+    "superstring": "^2.4.2",
+    "tree-sitter-javascript": "git://github.com/tree-sitter/tree-sitter-javascript.git#master"
   },
   "scripts": {
     "install": "prebuild-install || node-gyp rebuild",
     "build": "node-gyp build",
     "prebuild": "prebuild -r electron -t 11.0.0 -t 12.0.0 -t 13.0.0 -t 14.0.0 -t 15.0.0 -t 16.0.0 -t 17.0.0 -t 18.0.0 -t 19.0.0 -t 20.0.0 -t 21.0.0 -t 22.0.0 -t 23.0.0 --strip && prebuild -t 10.0.0 -t 12.0.0 -t 14.0.0 -t 16.0.0 -t 18.0.0 --strip",
     "prebuild:upload": "prebuild --upload-all",
-    "test": "mocha"
+    "test": "mocha && jest"
   }
 }
