@@ -27,6 +27,7 @@
     "tree-sitter-javascript": "git://github.com/tree-sitter/tree-sitter-javascript.git#master"
   },
   "scripts": {
+    "preinstall": "rm -rf vendor/tree-sitter; git clone --depth 1 --branch v0.20.6 https://github.com/tree-sitter/tree-sitter.git vendor/tree-sitter",
     "install": "prebuild-install || node-gyp rebuild",
     "build": "node-gyp build",
     "prebuild": "prebuild -r electron -t 11.0.0 -t 12.0.0 -t 13.0.0 -t 14.0.0 -t 15.0.0 -t 16.0.0 -t 17.0.0 -t 18.0.0 -t 19.0.0 -t 20.0.0 -t 21.0.0 -t 22.0.0 -t 23.0.0 --strip && prebuild -t 10.0.0 -t 12.0.0 -t 14.0.0 -t 16.0.0 -t 18.0.0 --strip",
